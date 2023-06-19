@@ -1,4 +1,4 @@
-import {EleveModel} from "../models/eleve.schema.js";
+import { EleveModel } from "../models/eleve.schema.js";
 
 
 class EleveService {

@@ -36,9 +36,8 @@ class assignementsService {
 
     // Retrieve all assignements
     static async getassignements(req, res) {
-
         try {
-            var aggregateQuery = req.query.match != null ? assignementsModel.aggregate([{ $match: req.query.match }]) : assignementsModel.aggregate();
+            var aggregateQuery = assignementsModel.aggregate([{ $match: { due: (/true/).test(req.query.match) } }]) ;
             
             const assignements = assignementsModel.aggregatePaginate(aggregateQuery,
                 {

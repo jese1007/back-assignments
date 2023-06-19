@@ -5,7 +5,7 @@ import helmet from "helmet";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import figlet from "figlet";
-import UserRoutes from "./src/routes/users.route.js";
+import UserRoutes from "./src/routes/eleve.route.js";
 import AssignementRoutes from "./src/routes/assignements.route.js";
 import SubjectRoutes from "./src/routes/subjects.route.js";
 import {connectToMongoDB} from "./src/utils/mongoose.js";
