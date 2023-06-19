@@ -1,18 +1,18 @@
 import express from "express";
-import UsersService from "../services/users.service.js";
+import EleveService from "../services/eleve.service.js";
 
 const router = express.Router();
-const path = '/users'
+const path = '/Eleve'
 
-// Create a new user
+// Create a new eleve
 router.post("/", async (req, res) => {
 
-    const {name, firstName, age} = req.body;
+    const {name, firstName, age, photo} = req.body;
 
     try {
 
-        const user = await UsersService.createUser(name, firstName, age);
-        res.status(201).json(user);
+        const eleve = await EleveService.createEleve(name, firstName, age, photo);
+        res.status(201).json(eleve);
 
     } catch (error) {
 
@@ -23,13 +23,13 @@ router.post("/", async (req, res) => {
 });
 
 
-// Retrieve all users
+// Retrieve all Eleve
 router.get("/", async (req, res) => {
 
     try {
 
-        const users = await UsersService.getUsers();
-        res.status(200).json(users);
+        const Eleve = await EleveService.getEleve();
+        res.status(200).json(Eleve);
 
     } catch (error) {
 
@@ -48,7 +48,7 @@ router.get("/:id", async (req, res) => {
     try {
 
 
-        const user = await UsersService.getUserById(id);
+        const user = await EleveService.getEleveById(id);
 
         if (user) {
             res.status(200).json(user);
@@ -73,7 +73,7 @@ router.put("/:id", async (req, res) => {
 
     try {
 
-        const user = await UsersService.updateUser(id, updatedData);
+        const user = await EleveService.updateEleve(id, updatedData);
 
         if (user) {
             res.status(200).json(user);
@@ -90,14 +90,14 @@ router.put("/:id", async (req, res) => {
 });
 
 
-// Delete a user by ID
+// Delete a eleve by ID
 router.delete("/:id", async (req, res) => {
 
     const {id} = req.params;
 
     try {
 
-        const result = await UsersService.deleteUser(id);
+        const result = await EleveService.deleteELeve(id);
         res.status(200).json({message: result});
 
     } catch (error) {
@@ -109,6 +109,6 @@ router.delete("/:id", async (req, res) => {
 });
 
 
-const UserRoutes = { path, router };
+const eleveRoutes = { path, router };
 
-export default UserRoutes
+export default eleveRoutes

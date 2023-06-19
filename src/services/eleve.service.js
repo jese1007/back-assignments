@@ -1,14 +1,14 @@
-import {usersModel} from "../models/users.schema.js";
+import {EleveModel} from "../models/eleve.schema.js";
 
 
-class UsersService {
+class EleveService {
 
     // Create a new user
-    static async createUser(name, firstName, age) {
+    static async createEleve(name, firstName, age, photo) {
 
         try {
 
-            const user = await usersModel.create({name, firstName, age});
+            const user = await EleveModel.create({name, firstName, age, photo});
             return user;
 
         } catch (error) {
@@ -19,17 +19,17 @@ class UsersService {
 
     }
 
-    // Retrieve all users
-    static async getUsers() {
+    // Retrieve all Eleve
+    static async getEleve() {
 
         try {
 
-            const users = await usersModel.find();
-            return users;
+            const Eleve = await EleveModel.find();
+            return Eleve;
 
         } catch (error) {
 
-            throw new Error("Failed to retrieve users.");
+            throw new Error("Failed to retrieve Eleve.");
 
         }
     }
@@ -39,7 +39,7 @@ class UsersService {
 
         try {
 
-            const user = await usersModel.findById(id);
+            const user = await EleveModel.findById(id);
             return user;
 
         } catch (error) {
@@ -55,7 +55,7 @@ class UsersService {
 
         try {
 
-            const user = await usersModel.findByIdAndUpdate(id, updatedData, {
+            const user = await EleveModel.findByIdAndUpdate(id, updatedData, {
                 new: true,
             });
             return user;
@@ -73,7 +73,7 @@ class UsersService {
 
         try {
 
-            await usersModel.findByIdAndDelete(id);
+            await EleveModel.findByIdAndDelete(id);
             return "User deleted successfully.";
 
         } catch (error) {
@@ -85,4 +85,4 @@ class UsersService {
     }
 }
 
-export default UsersService;
+export default EleveService;
