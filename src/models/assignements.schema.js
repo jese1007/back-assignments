@@ -12,7 +12,8 @@ const assignementSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Subject' // Refers to the 'Subject' model
     },
-    mark: Number
+    mark: Number,
+    due: Boolean
 })
 assignementSchema.plugin(aggregatePaginate);
 

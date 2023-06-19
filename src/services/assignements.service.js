@@ -19,11 +19,11 @@ class assignementsService {
     }
 
     // Create a new assignement
-    static async createassignement(name,dueDate, teacher,subject,mark) {
+    static async createassignement(name,dueDate, teacher,subject,mark,due) {
 
         try {
 
-            const assignement = await assignementsModel.create({name,dueDate, teacher,subject,mark});
+            const assignement = await assignementsModel.create({name,dueDate, teacher,subject,mark,due});
             return assignement;
 
         } catch (error) {
@@ -38,7 +38,7 @@ class assignementsService {
     static async getassignements(req, res) {
 
         try {
-            var aggregateQuery = assignementsModel.aggregate();
+            var aggregateQuery = req.query.match != null ? assignementsModel.aggregate([{ $match: req.query.match }]) : assignementsModel.aggregate();
             
             const assignements = assignementsModel.aggregatePaginate(aggregateQuery,
                 {

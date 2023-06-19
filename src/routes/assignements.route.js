@@ -7,11 +7,11 @@ const path = '/assignements'
 // Create a new assignement
 router.post("/", async (req, res) => {
 
-    const {name,dueDate, teacher,subject,mark} = req.body;
+    const {name,dueDate, teacher,subject,mark,due} = req.body;
 
     try {
 
-        const assignement = await assignementsService.createassignement(name, dueDate, teacher,subject,mark);
+        const assignement = await assignementsService.createassignement(name, dueDate, teacher,subject,mark,due);
         res.status(201).json(assignement);
 
     } catch (error) {
