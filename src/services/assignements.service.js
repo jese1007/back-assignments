@@ -59,7 +59,7 @@ class assignementsService {
 
         try {
 
-            const assignement = await assignementsModel.findById(id);
+            const assignement = await assignementsModel.findById(id).populate('student').populate('subject');
             return assignement;
 
         } catch (error) {
