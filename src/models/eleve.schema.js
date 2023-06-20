@@ -7,4 +7,4 @@ const eleveSchema = new Schema({
     photo: String,
 })
 
-export const EleveModel = mongoose.model('Eleve', eleveSchema)
+export const EleveModel = mongoose.model('Students', eleveSchema)

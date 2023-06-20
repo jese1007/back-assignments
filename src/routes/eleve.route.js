@@ -2,7 +2,7 @@ import express from "express";
 import EleveService from "../services/eleve.service.js";
 
 const router = express.Router();
-const path = '/Eleve'
+const path = '/students'
 
 // Create a new eleve
 router.post("/", async (req, res) => {
