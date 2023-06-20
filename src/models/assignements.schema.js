@@ -4,9 +4,9 @@ import aggregatePaginate from "mongoose-aggregate-paginate-v2";
 const assignementSchema = new Schema({
     name: String,
     dueDate: String,
-    teacher: {
+    student: {
         type: Schema.Types.ObjectId,
-        ref: 'User' // Refers to the 'User' model
+        ref: 'Students' // Refers to the 'Students' model
     },
     subject: {
         type: Schema.Types.ObjectId,

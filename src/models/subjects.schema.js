@@ -5,4 +5,4 @@ const subjectSchema = new Schema({
     picture: String,
 })
 
-export const subjectsModel = mongoose.model('subject', subjectSchema)
+export const subjectsModel = mongoose.model('Subject', subjectSchema)
